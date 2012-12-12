@@ -1,1 +1,1 @@
-#Java Technical Details.
+Java Technical Details.
