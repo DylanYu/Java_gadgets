@@ -3,25 +3,31 @@ package reflection;
 import java.lang.reflect.Field;
 
 /**
- * Codes followed by results
+ * Some examples about <cite>Java Reflection</cite>.
+ * <p>Presented by sample codes followed with <b>results</b>.
+ * <p>More details in packge {@code java.lang.reflect} such as 
+ * {@link java.lang.reflect.Field},
+ * {@link java.lang.reflect.Constructor},
+ * {@link java.lang.reflect.Method}.
+ * 
+ * @see http://lavasoft.blog.51cto.com/62575/43218/
  * 
  * @author Dongliang Yu
  * @since 2012-12-12
- * @version 0.1
+ * @version 0.2
  *
  */
 public class Example {
 
 	public int a = 1;
 	private int b = 2;
-	public int c = 3;
+	public final int c = 3;
 
 	public static int s = 4;
 
 	/**
-	 * 
 	 * @param augend0
-	 *            Integer, not int
+	 *            {@code Integer}, not {@code int}
 	 * @param augend1
 	 * @return
 	 */
@@ -77,9 +83,30 @@ public class Example {
 		public int reflection.Example.c
 		public static int reflection.Example.s
 		 */
-
+		
+		fs = eg.getClass().getDeclaredFields();
+		for (Field f : fs) {
+			System.out.println(f);
+		}
+		/*
+		public int reflection.Example.a
+		private int reflection.Example.b
+		public int reflection.Example.c
+		public static int reflection.Example.s
+		 */
+		
+		Class myclass = Class.forName("reflection.Example");
+		Field field = myclass.getField("c");
+		System.out.println(field);
+		//public final int reflection.Example.c
+		Object o = field.get(eg);
+		System.out.println(o);
+		//3
+		System.out.println("modifier:"+ field.getModifiers());
+		//17
+		
 		Reflection ref = new Reflection();
-		Object o = ref.getProperty(eg, "a");
+		o = ref.getProperty(eg, "a");
 		System.out.println(o);
 		// 1
 
