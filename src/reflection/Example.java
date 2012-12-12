@@ -10,11 +10,10 @@ import java.lang.reflect.Field;
  * {@link java.lang.reflect.Constructor},
  * {@link java.lang.reflect.Method}.
  * 
- * @see http://lavasoft.blog.51cto.com/62575/43218/
- * 
  * @author Dongliang Yu
  * @since 2012-12-12
  * @version 0.2
+ * @see http://lavasoft.blog.51cto.com/62575/43218/
  *
  */
 public class Example {
