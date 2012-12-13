@@ -15,13 +15,15 @@ import java.util.Map;
 /**
  * Examples created by Jie Hou with some modifications.
  * 
- * @author Jie Hou
+ * @author Dongliang Yu
  * 
  */
 public class HJExample {
 	public int a;
 	int b;
 	private int c;
+	
+	private String privateStr = "I'm a private memeber";
 	
 	public HJExample(){}
 	
@@ -31,11 +33,26 @@ public class HJExample {
 	
 	public void foo0(double a){}
 	
-	private int foo1(){return 1;}
+	private int foo1(){return 2;}
+	
+	private String fooStr(){return "I'm a private method";};
 	
 	public static void main(String[] args) throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
 		Class c = Double.class;
 		c = HJExample.class;
+		
+		HJExample e = new HJExample();
+		Object object;
+		Field privateField = c.getDeclaredField("privateStr");
+		object = privateField.get(e);
+		System.out.println(object);
+		//I'm a private memeber
+		
+		Method privateMethod = c.getDeclaredMethod("fooStr", null);
+		object = privateMethod.invoke(e, null);
+		System.out.println(object);
+		//"I'm a private method"
+
 		System.out.println("extends:" + Double.class.getSuperclass());
 		//SuperClass:class java.lang.Number
 		
@@ -50,6 +67,7 @@ public class HJExample {
 		//a
 		//b
 		//c
+		//privateStr
 		
 		ff = c.getFields();
 		for(Field f: ff) {
@@ -77,6 +95,8 @@ public class HJExample {
 		main
 		foo0
 		foo1
+		fooStr
+		func
 		 */
 		System.out.println("-----------");
 		
@@ -87,6 +107,7 @@ public class HJExample {
 		/*
 		main
 		foo0
+		func
 		wait
 		wait
 		wait
@@ -128,7 +149,7 @@ public class HJExample {
 		}
 		//<K,V>
 		System.out.println("extends " + c.getSuperclass());
-		//class java.util.AbstractMap
+		//extends class java.util.AbstractMap
 		System.out.println("-----------");
 		
 		Class[] cc = c.getInterfaces();
