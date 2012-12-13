@@ -13,7 +13,8 @@ import java.lang.reflect.Field;
  * @author Dongliang Yu
  * @since 2012-12-12
  * @version 0.2
- * @see http://lavasoft.blog.51cto.com/62575/43218/
+ * @see <cite>Java 反射机制深入研究</cite></br>
+ * http://lavasoft.blog.51cto.com/62575/43218/
  *
  */
 public class Example {

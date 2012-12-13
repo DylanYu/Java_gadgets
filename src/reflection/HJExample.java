@@ -1,6 +1,6 @@
 package reflection;
 
-import java.awt.Button;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +17,11 @@ import java.util.Map;
  * 
  * @author Dongliang Yu
  * 
+ * @see <cite>java反射的若干高级应用</cite></br>
+ * http://hi.baidu.com/dinglbo/item/57b4da6bdcdc46106995e605
+ * <p>
+ * @see <cite>探讨代理模式与Java反射机制的应用</cite></br>
+ * http://www.java3z.com/cwbwebhome/article/article8/8117.html
  */
 public class HJExample {
 	public int a;
